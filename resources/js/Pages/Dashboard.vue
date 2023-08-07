@@ -1,6 +1,9 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import NewTask from '../Components/NewTask.vue';
+import DeleteButton from '../Components/DeleteButton.vue';
+import { router } from '@inertiajs/vue3';
+
 
 import { Head } from '@inertiajs/vue3';
 
@@ -11,6 +14,17 @@ const props = defineProps({
         required: true,
     }
 });
+
+
+async function edit(value, id) {
+
+    const val = {val: value};
+    router.get(`/dashboard/edit/${id}`, val);
+}
+
+async function del(id) {
+    router.delete(`/dashboard/delete/${id}`);
+}
 
 </script>
 
@@ -35,9 +49,18 @@ const props = defineProps({
                             <tbody v-if="tasks">
                                 <tr v-for="task in tasks" :key="task.id">
                                     <td>
-                                        {{ task.description }}
-                                        <button class="">Delete</button>
-                                        <button>Edit</button>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="d-flex">
+                                                    <input type="text" class="p-2 flex-grow-1 border-0"
+                                                        @change="edit(task.description, task.id)"
+                                                        v-model="task.description">
+                                                    <div class="p-2">
+                                                        <DeleteButton @click="del(task.id)"></DeleteButton>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

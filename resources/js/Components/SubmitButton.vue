@@ -1,3 +1,3 @@
 <template>
-    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-primary">Create</button>
 </template>

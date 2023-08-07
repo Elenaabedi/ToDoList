@@ -46,5 +46,26 @@ class TaskController extends BaseController
 
     }
 
+    public function edit(Request $request, int $id){
+
+        $task = Task::find($id);
+        $task->description = $request->val;
+        $task->user_id = auth()->user()->id;
+
+        $task->save();
+
+        return redirect()->route('dashboard');
+
+    }
+
+    public function delete(int $id){
+
+        $task = Task::find($id);
+        $task->delete();
+
+        return redirect()->route('dashboard');
+
+    }
+
     
 }
