@@ -11,8 +11,8 @@
 
 1. Download.
 * Clone GitHub repository:
-  * HTTPS: `git clone https://github.com/Oloxx/Projecte-M12.git`
-  * SSH: `git clone git@github.com:Oloxx/Projecte-M12.git`
+  * HTTPS: `git clone https://github.com/Elenaabedi/ToDolist.git`
+  * SSH: `git clone git@github.com:Elenaabedi/ToDolist.git`
 * Open the cloned repository: 
   * `cd Projecte-M12`
 
